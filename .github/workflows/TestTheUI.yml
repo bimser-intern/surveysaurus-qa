@@ -1,4 +1,8 @@
+# A reusable workflow setup for testing the UI elements of the surveysaurus app
+# Gets automatically triggered by surveysaurus-ui workflows
+
 name: TestTheUI
+
 
 on:
   workflow_call:
