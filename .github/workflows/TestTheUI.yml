@@ -45,7 +45,7 @@ jobs:
         run: apt list --installed
             
       - name: Run the test script
-        run: python SurveySaurusLogin1.py
+        run: python SurveySaurusLogin1.py production
  
 
 
