@@ -18,7 +18,7 @@ jobs:
     - name: Pushes test file
       uses: dmnemec/copy_file_to_another_repo_action@main
       env:
-        API_TOKEN_GITHUB: ${{ secrets.TEST_WEB_SECRET }}
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_file: 'SurveySaurusLogin1.py'
         destination_repo: 'bimser-intern/surveysaurus-ui'
@@ -33,9 +33,7 @@ jobs:
     steps:      
       - name: Checkout to the branch
         uses: actions/checkout@v2
-        
-        
-        
+                 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
