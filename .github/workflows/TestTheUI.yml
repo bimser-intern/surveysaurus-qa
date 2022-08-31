@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout to the branch
-        uses: actions/checkout@v2
-        
       - name: Checkout QA branch
         uses: actions/checkout@v2
         with:
@@ -23,6 +20,10 @@ jobs:
             
       - name: Copy UI Test File To UI Repository
         run: cp ./SurveySaurusLogin1.py .
+        
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+        
       
       - name: Set up Python
         uses: actions/setup-python@v2
