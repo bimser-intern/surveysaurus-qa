@@ -23,6 +23,7 @@ jobs:
         source_file: 'SurveySaurusLogin1.py'
         destination_repo: 'bimser-intern/surveysaurus-ui'
         destination_folder: '.'
+        destination_branch: 'master'
         user_email: 'duzenli.muhammet97@gmail.com'
         user_name: 'muhammetduzenli'
         commit_message: 'Test file added to ui repository'
