@@ -43,9 +43,15 @@ jobs:
                           
       - name: Installed package list
         run: apt list --installed
+        
+      - name: Git Install
+        run: sudo apt install git-all
+        
+      - name: Git Login
+        run: git config --global user.name
             
       - name: Run the test script
-        run: python bimser-intern/surveysaurus-qa/SurveySaurusLogin1.py production
+        run: python SurveySaurusLogin1.py production
  
 
 
