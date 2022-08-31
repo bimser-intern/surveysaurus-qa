@@ -45,7 +45,7 @@ jobs:
         run: apt list --installed
         
       - name: Git Install
-        run: sudo apt install git-all
+        run: sudo apt-get install git
         
       - name: Git Login
         run: git config --global user.name
