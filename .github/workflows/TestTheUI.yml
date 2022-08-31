@@ -43,13 +43,7 @@ jobs:
                           
       - name: Installed package list
         run: apt list --installed
-        
-      - name: Git Install
-        run: sudo apt-get install git
-        
-      - name: Git Login
-        run: git config --list
-            
+                   
       - name: Run the test script
         run: python SurveySaurusLogin1.py production
  
