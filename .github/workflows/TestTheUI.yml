@@ -45,7 +45,7 @@ jobs:
         run: apt list --installed
             
       - name: Run the test script
-        run: python SurveySaurusLogin1.py production
+        run: python bimser-intern/surveysaurus-qa/SurveySaurusLogin1.py production
  
 
 
