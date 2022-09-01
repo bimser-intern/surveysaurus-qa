@@ -8,11 +8,45 @@ on:
   workflow_call:
   
 jobs:
-       
+
+
+
+
+
+
+
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        repository: bimser-intern/surveysaurus-qa
+
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'SurveySaurusLogin1.py'
+        destination_repo: 'bimser-intern/surveysaurus-ui'
+        destination_folder: '.'
+        user_email: 'duzenli.muhammet97@gmail.com'
+        user_name: 'muhammetduzenli'
+        commit_message: 'Test Folder Pushed to the UI Folder'
+        
+        
+        
+        
+        
+        
+        
+        
   test:
     runs-on: ubuntu-latest
     
-    steps:      
+    steps:     
+       
       - name: Checkout to the branch
         uses: actions/checkout@v2
                  
