@@ -32,12 +32,6 @@ jobs:
     
     steps:     
 
-      - name: Checkout QA 
-        uses: actions/checkout@v2
-        with:
-          repository: bimser-intern/surveysaurus-qa
-          path: './'
-          run: cp ./SurveySaurusLogin1.py .
         
       - name: Checkout to the branch
         uses: actions/checkout@v2
