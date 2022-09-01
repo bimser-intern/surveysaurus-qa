@@ -21,11 +21,12 @@ jobs:
       - name: Copy Test File To UI
         uses: andstor/copycat-action@v3
         with:
-             personal_token: ${{ secrets.API_TOKEN_GITHUB }}
-             src_path: bimser-intern/surveysaurus-qa/SurveySaurusLogin1.py
-             dst_path: /.
-             dst_owner: bimser-intern
-             dst_repo_name: surveysaurus-ui
+          repository: bimser-intern/surveysaurus-qa
+          personal_token: ${{ secrets.API_TOKEN_GITHUB }}
+          src_path: /SurveySaurusLogin1.py
+          dst_path: /.
+          dst_owner: bimser-intern
+          dst_repo_name: surveysaurus-ui
     
         
         
