@@ -12,22 +12,18 @@ on:
 
 jobs:
 
+  #copy:
+   # runs-on: ubuntu-latest
+   # steps:
+   # - name: Checkout QA 
+   #   uses: actions/checkout@v2
+   #   with:
+   #     repository: bimser-intern/surveysaurus-qa
+   #     path: './'
+   #     run: cp ./SurveySaurusLogin1.py .
+   # - name: Checkout UI 
+   #   uses: actions/checkout@v2
 
-
-  copyfile:
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout QA branch
-        uses: actions/checkout@v2 && andstor/copycat-action@v3
-        with:
-          repository: bimser-intern/surveysaurus-qa
-          personal_token: ${{ secrets.API_TOKEN_GITHUB }}
-          src_path: /SurveySaurusLogin1.py
-          dst_path: /.
-          dst_owner: bimser-intern
-          dst_repo_name: surveysaurus-ui
-          
          
         
         
@@ -35,7 +31,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:     
-       
+
+      - name: Checkout QA 
+        uses: actions/checkout@v2
+        with:
+          repository: bimser-intern/surveysaurus-qa
+          path: './'
+          run: cp ./SurveySaurusLogin1.py .
+        
       - name: Checkout to the branch
         uses: actions/checkout@v2
                  
