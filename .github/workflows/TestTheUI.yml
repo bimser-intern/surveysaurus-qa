@@ -30,7 +30,6 @@ jobs:
       with:
         source_file: 'SurveySaurusLogin1.py'
         destination_repo: 'bimser-intern/surveysaurus-ui'
-        destination_folder: '.'
         user_email: 'duzenli.muhammet97@gmail.com'
         user_name: 'muhammetduzenli'
         commit_message: 'Test Folder Pushed to the UI Folder'
