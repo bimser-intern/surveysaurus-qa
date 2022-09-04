@@ -1,8 +1,8 @@
 name: Run android tests in github runner
 
 on:
-  push:
-    branches: [ master ]
+  #push:
+   # branches: [ master ]
 
   workflow_dispatch:
 
