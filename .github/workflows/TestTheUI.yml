@@ -5,34 +5,16 @@ name: TestTheUI
 
 
 on:
-  workflow_call:
+  repository_dispatch:
   
-
-
-
+  
 jobs:
-
-  #copy:
-   # runs-on: ubuntu-latest
-   # steps:
-   # - name: Checkout QA 
-   #   uses: actions/checkout@v2
-   #   with:
-   #     repository: bimser-intern/surveysaurus-qa
-   #     path: './'
-   #     run: cp ./SurveySaurusLogin1.py .
-   # - name: Checkout UI 
-   #   uses: actions/checkout@v2
-
-         
-        
-        
+                        
   test:
     runs-on: ubuntu-latest
     
     steps:     
-
-        
+      
       - name: Checkout to the branch
         uses: actions/checkout@v2
                  
@@ -41,10 +23,10 @@ jobs:
         with:
           python-version: '3.9'
           
-      - name: Install selenium
+      - name: Install Selenium
         run: pip install selenium==4.4.0
         
-      - name: Upgrade selenium
+      - name: Upgrade Selenium
         run: pip3 install -U selenium
         
       - name: Install webdriver-manager
@@ -62,11 +44,12 @@ jobs:
           && sudo chmod +x /usr/local/bin/chromedriver \
           && chromedriver --version   
                           
-      - name: Installed package list
+      - name: Show Installed Package List
         run: apt list --installed
                    
-      - name: Run the test script
-        run: python SurveySaurusLogin1.py
- 
+      - name: Run the Test Script
+        run: |
+          cd /Web-Otomasyonları \ 
+          && python main.py
 
 
