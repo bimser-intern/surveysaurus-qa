@@ -8,7 +8,6 @@ import time
 options = modul.devops()
 driver = webdriver.Chrome(options=options)
 
-driver.get("http://40.113.137.113")
 driver.maximize_window()
 time.sleep(3)
 
@@ -21,27 +20,7 @@ class CommentWithLoginPage:
 
     def CommentWithLogin(self):
 
-        self.login = driver.find_element(By.XPATH, "//*[@id='#menu']/ul/li[2]/a")
-        self.login.click()
-        time.sleep(1)
-
-        email = driver.find_element(
-            By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[1]/input"
-        )
-        email.send_keys("luigop@hizliemail.net")
-        time.sleep(1)
-
-        password = driver.find_element(
-            By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[2]/input"
-        )
-        password.send_keys("Luigop.123")
-        time.sleep(1)
-
-        self.loginButton = driver.find_element(
-            By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[4]/button"
-        )
-        self.loginButton.click()
-        time.sleep(1)
+        modul.login(driver,"luigop@hizliemail.net","Luigop.123")
 
         self.home = driver.find_element(
             By.XPATH, "/html/body/div/div/div[1]/nav/ul/li[1]/a"
