@@ -50,6 +50,6 @@ jobs:
       - name: Run the Test Script
         run: |
           cd /Web-Otomasyonları \ 
-          && python main.py
+          && python main.py production
 
 
