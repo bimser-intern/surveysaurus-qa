@@ -5,13 +5,8 @@ from selenium.webdriver.common.alert import Alert
 import time
 import modul
 
-#service = Service(".\chromedriver.exe")
-#driver = webdriver.Chrome(service = service)
-
-options = webdriver.ChromeOptions()
+options = modul.devops()
 driver = webdriver.Chrome(options=options)
-
-modul.devops(driver)
 
 driver.maximize_window()
 time.sleep(3)

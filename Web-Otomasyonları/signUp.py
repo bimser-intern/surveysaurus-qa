@@ -8,13 +8,9 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.alert import Alert
 import modul
 
-#service = Service(".\chromedriver.exe")
-#driver = webdriver.Chrome(service=service)
-
-options = webdriver.ChromeOptions()
+options = modul.devops()
 driver = webdriver.Chrome(options=options)
 
-modul.devops(driver)
 
 
 driver.get("http://40.113.137.113/")

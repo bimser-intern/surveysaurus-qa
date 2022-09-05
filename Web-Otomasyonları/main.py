@@ -8,12 +8,10 @@ from commentWithLogin import CommentWithLoginPage
 import modul
 from selenium import webdriver
 
-
-
-options = webdriver.ChromeOptions()
+print("hhh")
+options = modul.devops()
 driver = webdriver.Chrome(options=options)
 
-modul.devops(driver)
 
 signup = SignUpPage()
 signup.SignUp()
