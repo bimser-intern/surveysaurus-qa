@@ -22,12 +22,7 @@ class CommentWithLoginPage:
 
         modul.login(driver,"luigop@hizliemail.net","Luigop.123")
 
-        self.home = driver.find_element(
-            By.XPATH, "/html/body/div/div/div[1]/nav/ul/li[1]/a"
-        )
-        self.home.click()
         time.sleep(1)
-
         self.scroll = driver.execute_script("window.scrollBy(0,2100)", "")
         time.sleep(1)
 
