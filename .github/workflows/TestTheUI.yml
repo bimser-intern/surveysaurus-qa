@@ -43,6 +43,6 @@ jobs:
                    
       - name: Run the Test Script
         run: |
-          python ./Web-Otomasyonları/main.py
+          python ./Web-Otomasyonları/main.py production
 
 
