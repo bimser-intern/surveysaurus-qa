@@ -49,7 +49,6 @@ jobs:
                    
       - name: Run the Test Script
         run: |
-          cd /Web-Otomasyonları \ 
-          && python main.py production
+          python ./Web-Otomasyonları/main.py
 
 
