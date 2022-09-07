@@ -1,19 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 import time
 import modul
 
-options = modul.devops()
-driver = webdriver.Chrome(options=options)
-
-driver.maximize_window()
-time.sleep(3)
-
 class Fill():
 
-    def FillSurvey(self):
+    def FillSurvey(self, driver):    
 
         modul.findsurvey(driver)
         modul.fillsurvey(driver)
@@ -28,8 +20,4 @@ class Fill():
         else:
             print("HATA: İşlem başarılı değil!")
 
-        driver.quit()
 
-fillsurvey = Fill()
-fillsurvey.FillSurvey()
-driver.quit()

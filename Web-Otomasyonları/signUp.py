@@ -1,5 +1,3 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 import random
@@ -8,17 +6,8 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.alert import Alert
 import modul
 
-options = modul.devops()
-driver = webdriver.Chrome(options=options)
-
-
-
-driver.get("http://40.113.137.113/")
-driver.maximize_window()
-time.sleep(3)
-
 class SignUpPage():
-    def __int__(self, Name, Mail, Gender, Country, City, Password, Password2, email, message):
+    def __int__(self, Name, Mail, Gender, Country, City, Password, Password2, email, driver):
         self.Name = Name
         self.Mail = Mail
         self.Gender = Gender
@@ -27,10 +16,12 @@ class SignUpPage():
         self.Password = Password
         self.Password2 = Password2
         self.email = email
+        self.driver = driver
 
-    def SignUp(self):
+    def SignUp(self, driver):
 
-
+        driver.get("http://40.113.137.113/")
+        driver.maximize_window()
         self.signup = driver.find_element(By.XPATH, "/html/body/div/div/div/div[1]/ul/li[1]/a/p")
         self.signup.click()
         time.sleep(2)
@@ -106,8 +97,5 @@ class SignUpPage():
         else:
             print("HATA: Üye olma işlemi başarılı değil!")
 
-        driver.quit()
 
-signup = SignUpPage()
-signup.SignUp()
 

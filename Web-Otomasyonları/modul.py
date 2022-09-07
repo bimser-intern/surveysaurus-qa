@@ -1,51 +1,45 @@
 from selenium.webdriver.common.by import By
 import time
 import sys
-from selenium.webdriver.common.alert import Alert
 from selenium import webdriver
 
-def devops():
+options = webdriver.ChromeOptions()
 
-    options = webdriver.ChromeOptions()
+if len(sys.argv) == 1:
+    sys.exit()
 
-    if len(sys.argv) == 1:
-        sys.exit()
+if sys.argv[1] == "production":
 
-    if sys.argv[1] == "production":
+    options.add_argument("headless")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--remote-debugging-port=9222")
+    options.add_argument("--window-size=1920,1080")
+        
+if sys.argv[1] == "development":
+    # for development
+    pass
 
-        options.add_argument("headless")
-        options.add_argument("--disable-infobars")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--remote-debugging-port=9222")
-        options.add_argument("--window-size=1920,1080")
-
-    if sys.argv[1] == "development":
-        # for development
-        pass
-
-    return options
+driver = webdriver.Chrome(options=options)
 
 
 def login(driver, username, password):
 
-    driver.get("http://40.113.137.113")
+    driver.get("http://40.113.137.113/")
     driver.find_element(By.CLASS_NAME, "loginButton").click()
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[1]/input"
-    ).send_keys(username)
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[2]/input"
-    ).send_keys(password)
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[4]/button"
-    ).click()
+    driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[1]/input").send_keys(username)
+    driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[2]/input").send_keys(password)
+    driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[4]/button").click()
     time.sleep(3)
 
+def logout(driver):
+    driver.find_element(By.CLASS_NAME, "UserIcon").click()
+    driver.find_element(By.CLASS_NAME, "logOutContainer").click()
 
 def findsurvey(driver):
-
-    driver.get("http://40.113.137.113")
+    
+    driver.get("http://40.113.137.113/")
     time.sleep(1)
     driver.scroll = driver.execute_script("window.scrollBy(0,2100)", "")
     time.sleep(1)
@@ -56,10 +50,7 @@ def findsurvey(driver):
     driver.scrollToRight.click()
     time.sleep(1)
 
-    driver.survey = driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div/div[5]/div/div[2]/div/div/div/div[7]/div/div/div/div",
-    )
+    driver.survey = driver.find_element(By.XPATH, "/html/body/div/div/div/div[5]/div/div[2]/div/div/div/div[7]/div/div/div/div")
     driver.survey.click()
     time.sleep(1)
 
@@ -85,9 +76,8 @@ def fillsurvey(driver):
 
 
 def comment(driver):
-
+    
     time.sleep(3)
-    driver.execute_script("window.scrollBy(0,350)", "")
     driver.addComment = driver.find_element(By.CLASS_NAME, "addButton")
     driver.addComment.click()
     time.sleep(1)
