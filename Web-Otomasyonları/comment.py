@@ -28,6 +28,3 @@ class CommentPage:
         else:
             print("HATA: İşlem başarılı değil!")
 
-        driver.quit()
-
-

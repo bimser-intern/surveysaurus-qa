@@ -38,8 +38,8 @@ def logout(driver):
     driver.find_element(By.CLASS_NAME, "logOutContainer").click()
 
 def findsurvey(driver):
-
-
+    
+    driver.get("http://40.113.137.113/")
     time.sleep(1)
     driver.scroll = driver.execute_script("window.scrollBy(0,2100)", "")
     time.sleep(1)
@@ -50,10 +50,7 @@ def findsurvey(driver):
     driver.scrollToRight.click()
     time.sleep(1)
 
-    driver.survey = driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div/div[5]/div/div[2]/div/div/div/div[7]/div/div/div/div",
-    )
+    driver.survey = driver.find_element(By.XPATH, "/html/body/div/div/div/div[5]/div/div[2]/div/div/div/div[7]/div/div/div/div")
     driver.survey.click()
     time.sleep(1)
 

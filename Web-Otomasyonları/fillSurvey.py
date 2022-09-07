@@ -5,10 +5,7 @@ import modul
 
 class Fill():
 
-    def FillSurvey(self, driver):
-       
-        driver.maximize_window()
-        time.sleep(3)
+    def FillSurvey(self, driver):    
 
         modul.findsurvey(driver)
         modul.fillsurvey(driver)
