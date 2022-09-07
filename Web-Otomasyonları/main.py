@@ -1,35 +1,32 @@
+import modul
 from signUp import SignUpPage
-from login import login
-from fillSurveyWithLogin import FillWithLogin
+from login import Login
 from fillSurvey import Fill
+from fillSurveyWithLogin import FillWithLogin
 from CreateSurvey import Createsurvey
 from comment import CommentPage
 from commentWithLogin import CommentWithLoginPage
-import modul
-from selenium import webdriver
-
-print("hhh")
-options = modul.devops()
-driver = webdriver.Chrome(options=options)
-
+import sys
 
 signup = SignUpPage()
-signup.SignUp()
+signup.SignUp(modul.driver)
 
-login = login()
-login.Login()
+login = Login()
+login.Loginsurvey(modul.driver)
 
 fillsurvey = Fill()
-fillsurvey.FillSurvey()
+fillsurvey.FillSurvey(modul.driver)
 
 fillSurvey = FillWithLogin()
-fillSurvey.FillSurveyWithLogin()
+fillSurvey.FillSurveyWithLogin(modul.driver)
 
 create = Createsurvey()
-create.createsurvey()
+create.createsurvey(modul.driver)
 
 comment = CommentPage()
-comment.Comment()
+comment.Comment(modul.driver)
 
 commentpage = CommentWithLoginPage()
-commentpage.CommentWithLogin()
+commentpage.CommentWithLogin(modul.driver)
+
+sys.exit()

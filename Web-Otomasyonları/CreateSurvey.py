@@ -1,19 +1,12 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 import time
 import modul
 
-options = modul.devops()
-driver = webdriver.Chrome(options=options)
-
-driver.maximize_window()
-
 
 class Createsurvey:
-    @staticmethod
-    def createsurvey():
+
+    def createsurvey(self, driver):
 
         driver.get("http://40.113.137.113/")
         driver.execute_script("window.scrollBy(0,450)", "")
@@ -33,8 +26,6 @@ class Createsurvey:
                 "HATA: Giriş yapmadan anket oluşturulduğunda login sayfasına yönlendirme işlemi başarısız olmuştur."
             )
 
-        driver.quit()
 
 
-create = Createsurvey()
-create.createsurvey()
+
