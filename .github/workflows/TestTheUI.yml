@@ -24,10 +24,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '5'
           
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirementstt.txt
          
       - name: Install ChromeDriver
         run: |
