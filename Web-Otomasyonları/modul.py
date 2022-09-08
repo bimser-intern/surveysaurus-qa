@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 import time
 import sys
 from selenium import webdriver
+import random
+import itertools
 
 options = webdriver.ChromeOptions()
 
@@ -99,44 +101,45 @@ def comment(driver):
 
 def surveyfilltext(driver):
 
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[1]/input"
-    ).send_keys("Mevsimler 5")
-    driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[1]/div[3]/input",
-    ).send_keys("Kış")
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[2]/input"
-    ).send_keys("En sevdiğiniz mevsim hangisidir?")
-    driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[2]/div[3]/input",
-    ).send_keys("Yaz")
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[4]"
-    ).click()
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[4]"
-    ).click()
-    driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[3]/div[3]/input",
-    ).send_keys("İlkbahar")
-    driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[4]/div[3]/input",
-    ).send_keys("Sonbahar")
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[4]"
-    ).click()
-    driver.find_element(
-        By.XPATH,
-        "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[5]/div[3]/input",
-    ).send_keys("Silinecek seçenek")
-    driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[5]/div[2]/img"
-    ).click()
+    driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[1]/input").send_keys("Mevsimler 5")
+
+    driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[2]/input").send_keys("En sevdiğiniz mevsim hangisidir?")
+
+    driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div/div/div/form/div[3]/div[1]/div[3]/input").send_keys("Kış")
+
+    driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div/div/div/form/div[3]/div[2]/div[3]/input").send_keys("Yaz")
+
+    driver.find_element(By.CLASS_NAME, "addOption").click()    
+    driver.find_element(By.CLASS_NAME, "addOption").click()
+
+    driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div/div/div/form/div[3]/div[3]/div[3]/input").send_keys("İlkbahar")
+
+    driver.find_element( By.XPATH,"/html/body/div/div/div[2]/div/div/div/form/div[3]/div[4]/div[3]/input").send_keys("Sonbahar")
+
+    driver.find_element(By.CLASS_NAME, "addOption").click()
+
+    driver.find_element(By.XPATH,"/html/body/div/div/div[2]/div/div/div/form/div[3]/div[5]/div[3]/input").send_keys("Silinecek seçenek")
+
+    driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div/form/div[3]/div[5]/div[2]/img").click()
+
     driver.execute_script("window.scrollBy(0,350)", "")
+
     driver.find_element(By.CLASS_NAME, "createButton").click()
+
     time.sleep(3)
+
+
+def email(driver):
+
+   letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",]   
+   all_combos = list(itertools.combinations(letters, 7))  # make all 7 letter combinations
+   all_combos = [''.join(combo) for combo in all_combos]  # make them strings
+   email = random.sample(all_combos, 1)[0] + '@gmail.com'  # grab a random one, add @gmail.com
+   email = ''
+   for _ in range(7):
+       letter = random.sample(letters, 1)[0]
+       email += letter
+
+   email += '@gmail.com'
+
+   return email
