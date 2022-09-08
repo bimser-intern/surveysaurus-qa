@@ -48,4 +48,7 @@ jobs:
 
       - name: echo distinct ID ${{ github.event.inputs.distinct_id }}
         run: echo ${{ github.event.inputs.distinct_id }}
+       
+      - name: echo input passthrough
+        run: echo ${{ github.event.inputs.cake }}
 
