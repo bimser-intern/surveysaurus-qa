@@ -46,18 +46,7 @@ class SignUpPage():
         name.send_keys(username)
         time.sleep(1)
 
-        letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
-                   "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ]
-
-        all_combos = list(itertools.combinations(letters, 7))  # make all 7 letter combinations
-        all_combos = [''.join(combo) for combo in all_combos]  # make them strings
-        self.email = random.sample(all_combos, 1)[0] + '@gmail.com'  # grab a random one, add @gmail.com
-        email = ''
-        for _ in range(7):
-            letter = random.sample(letters, 1)[0]
-            email += letter
-
-        email += '@gmail.com'
+        email = modul.email(driver)
 
         self.Mail = driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[2]/input")
         self.Mail.send_keys(email)
@@ -97,5 +86,7 @@ class SignUpPage():
         else:
             print("HATA: Üye olma işlemi başarılı değil!")
 
+        # anket oluşturma için otomasyon giriş yapılarak sonlandırılıyor. 
+        modul.login(modul.driver, email, "Abc.123456") 
 
 

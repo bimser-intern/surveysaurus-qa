@@ -1,15 +1,20 @@
 import modul
 from signUp import SignUpPage
+from CreateSurveyWithLogin import CreateSurveywithLogin
 from login import Login
 from fillSurvey import Fill
 from fillSurveyWithLogin import FillWithLogin
 from CreateSurvey import Createsurvey
 from comment import CommentPage
 from commentWithLogin import CommentWithLoginPage
+
 import sys
 
 signup = SignUpPage()
 signup.SignUp(modul.driver)
+
+createsurvey = CreateSurveywithLogin()
+createsurvey.Survey(modul.driver)
 
 login = Login()
 login.Loginsurvey(modul.driver)
