@@ -24,11 +24,11 @@ if sys.argv[1] == "development":
     pass
 
 driver = webdriver.Chrome(options=options)
-
+link = "http://20.4.45.170"
 
 def login(driver, username, password):
 
-    driver.get("http://40.113.137.113/")
+    driver.get(link)
     driver.find_element(By.CLASS_NAME, "loginButton").click()
     driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[1]/input").send_keys(username)
     driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/form/div[2]/input").send_keys(password)
@@ -41,7 +41,7 @@ def logout(driver):
 
 def findsurvey(driver):
     
-    driver.get("http://40.113.137.113/")
+    driver.get(link)
     time.sleep(1)
     driver.scroll = driver.execute_script("window.scrollBy(0,2100)", "")
     time.sleep(1)

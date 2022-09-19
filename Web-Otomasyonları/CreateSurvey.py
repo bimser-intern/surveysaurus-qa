@@ -8,7 +8,7 @@ class Createsurvey:
 
     def createsurvey(self, driver):
 
-        driver.get("http://40.113.137.113/")
+        driver.get(modul.link)
         driver.execute_script("window.scrollBy(0,450)", "")
         time.sleep(3)
         driver.find_element(By.CLASS_NAME, "createButton").click()
@@ -17,7 +17,7 @@ class Createsurvey:
 
         Alert(driver).accept()
 
-        if "http://40.113.137.113/login" == driver.current_url:
+        if driver.current_url == modul.link:
             print(
                 "Giriş yapmadan anket oluşturulduğunda login sayfasına yönlendirme işlemi başarılıdır."
             )

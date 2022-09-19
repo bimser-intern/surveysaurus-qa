@@ -41,7 +41,7 @@ class CreateSurveywithLogin():
 
         link = driver.current_url
 
-        if link == "http://40.113.137.113/userPage":
+        if link == "http://20.4.45.170/UserPage":
            print("Anket oluşturma işlemi tamamlandığında My Surveys sayfasına yönlendirme işlemi başarılıdır.")
         else:
            print("HATA: Anket oluşturma işlemi tamamlandığında My Surveys sayfasına yönlendirme işlemi başarısız olmuştur.")
