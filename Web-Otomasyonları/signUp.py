@@ -20,7 +20,7 @@ class SignUpPage():
 
     def SignUp(self, driver):
 
-        driver.get("http://40.113.137.113/")
+        driver.get(modul.link)
         driver.maximize_window()
         self.signup = driver.find_element(By.XPATH, "/html/body/div/div/div/div[1]/ul/li[1]/a/p")
         self.signup.click()
