@@ -46,9 +46,7 @@ def findsurvey(driver):
     driver.scroll = driver.execute_script("window.scrollBy(0,2100)", "")
     time.sleep(1)
 
-    driver.scrollToRight = driver.find_element(
-        By.XPATH, "/html/body/div/div/div/div[5]/div/div[2]/div/button[2]"
-    )
+    driver.scrollToRight = driver.find_element(By.XPATH, "/html/body/div/div/div/div[5]/div/div[2]/div/button[2]")
     driver.scrollToRight.click()
     time.sleep(1)
 
@@ -59,21 +57,15 @@ def findsurvey(driver):
 
 def fillsurvey(driver):
 
-    driver.option = driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div[1]/div[2]/div/div[1]/img"
-    )
+    driver.option = driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div[1]/div[2]/div/div[1]/img")
     driver.option.click()
     time.sleep(1)
 
-    driver.option2 = driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div[1]/div[2]/div/div[2]/img"
-    )
+    driver.option2 = driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div[1]/div[2]/div/div[2]/img")
     driver.option2.click()
     time.sleep(1)
 
-    driver.button = driver.find_element(
-        By.XPATH, "//*[@id='root']/div/div[2]/div[1]/div[3]/button[2]"
-    )
+    driver.button = driver.find_element(By.CLASS_NAME, "doneButton")
     driver.button.click()
 
 
@@ -84,17 +76,13 @@ def comment(driver):
     driver.addComment.click()
     time.sleep(1)
 
-    driver.commentArea = driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/textarea"
-    )
+    driver.commentArea = driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/textarea")
     driver.commentArea.click()
     time.sleep(1)
     driver.commentArea.send_keys("Merhaba, çok iyi bir anket. Kesinlikle çok güzel.")
     time.sleep(1)
 
-    driver.commentButton2 = driver.find_element(
-        By.XPATH, "/html/body/div/div/div[2]/div/div/div/div"
-    )
+    driver.commentButton2 = driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div/div/div")
     driver.commentButton2.click()
     time.sleep(1)
 
