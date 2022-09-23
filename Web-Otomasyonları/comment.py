@@ -14,17 +14,11 @@ class CommentPage:
         Alert(driver).accept()
         time.sleep(1)
 
-        self.message = driver.find_element(
-            By.XPATH, "/html/body/div/div/div[4]/div[3]/div[2]/p"
-        ).text
+        self.message = driver.find_element(By.XPATH, "/html/body/div/div/div[4]/div[3]/div[2]/p").text
 
         if self.message == "Don't have an account?":
-            print(
-                "Yorum alanına bir şey yazılmadan Comment butonuna tıklandığında gerekli uyarı mesajı verildi."
-            )
-            print(
-                "Giriş yapılmadan yorum yapmak istendiğinde login sayfasına yönlendirme durumu başarılı."
-            )
+            print("Yorum alanına bir şey yazılmadan Comment butonuna tıklandığında gerekli uyarı mesajı verildi.")
+            print("Giriş yapılmadan yorum yapmak istendiğinde login sayfasına yönlendirme durumu başarılı.")
         else:
             print("HATA: İşlem başarılı değil!")
 
